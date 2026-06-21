@@ -3,7 +3,7 @@
 import { useRef, useState } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { FLAVORS } from "@/lib/flavors";
-import { ProductPhoto, ProductGroupPhoto } from "./ProductPhoto";
+import { ProductPhoto } from "./ProductPhoto";
 import { fadeUp, viewportOnce } from "@/lib/motion";
 
 export function PackagingGallery() {

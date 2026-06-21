@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Check, QrCode, MessageCircle } from "lucide-react";
+import { Check, QrCode, MessageCircle } from "lucide-react";
 import { FLAVORS } from "@/lib/flavors";
 import { ProductPhoto, ProductGroupPhoto } from "./ProductPhoto";
 import { fadeUp, stagger, viewportOnce } from "@/lib/motion";
