@@ -361,14 +361,14 @@ function FlavorParticles({
 
 function FlavorShape({ flavor, index }: { flavor: Flavor; index: number }) {
   const ingredients: Record<string, string[]> = {
-    butter: ["/ingredients/butter.png"],
+    butter: ["/ingredients-webp/butter.webp"],
     saffron: [
-      "/ingredients/almond.png",
-      "/ingredients/pista.png",
-      "/ingredients/saffron.png",
+      "/ingredients-webp/almond.webp",
+      "/ingredients-webp/pista.webp",
+      "/ingredients-webp/saffron.webp",
     ],
-    cocoa: ["/ingredients/chocolate-chip.png"],
-    coconut: ["/ingredients/coconut.png"],
+    cocoa: ["/ingredients-webp/chocolate-chip.webp"],
+    coconut: ["/ingredients-webp/coconut.webp"],
   };
 
   const options = ingredients[flavor.id] || [];

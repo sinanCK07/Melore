@@ -4,10 +4,10 @@ import Image from "next/image";
 import type { Flavor } from "@/lib/flavors";
 
 const PHOTOS: Record<string, string> = {
-  butter: "/products/butter.png",
-  saffron: "/products/saffron.png",
-  cocoa: "/products/cocoa.png",
-  coconut: "/products/coconut.png",
+  butter: "/products-webp/butter.webp",
+  saffron: "/products-webp/saffron.webp",
+  cocoa: "/products-webp/cocoa.webp",
+  coconut: "/products-webp/coconut.webp",
 };
 
 type Props = {
@@ -53,7 +53,7 @@ export function ProductGroupPhoto({
   return (
     <div className={`relative ${className}`}>
       <Image
-        src="/products/all-four.png"
+        src="/products-webp/all-four.webp"
         alt="The complete Melore Cookies collection — all four flavors"
         fill
         sizes={sizes}
