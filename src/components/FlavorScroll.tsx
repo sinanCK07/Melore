@@ -67,22 +67,14 @@ export function FlavorScroll() {
         ))}
 
         {/* Tins stacked, only the active one visible */}
-        <div className="relative z-10 mx-auto grid h-full max-w-7xl items-center gap-8 px-6 md:px-10 lg:grid-cols-2">
-          {/* Copy column */}
-          <div className="order-2 lg:order-1">
-            {FLAVORS.map((flavor, i) => (
-              <FlavorCopy
-                key={flavor.id}
-                flavor={flavor}
-                progress={progress}
-                index={i}
-              />
-            ))}
-          </div>
-
-          {/* Tin column */}
-          <div className="order-1 flex h-full items-center justify-center lg:order-2">
-            <div className="relative perspective-1500">
+        <div
+          className="relative z-10 mx-auto grid h-full max-w-7xl gap-2 px-5 pt-20 pb-6 md:px-10
+                     grid-rows-[38vh_1fr]
+                     lg:grid-cols-2 lg:grid-rows-1 lg:items-center lg:gap-8 lg:py-0"
+        >
+          {/* Tin column — top on mobile, right on desktop */}
+          <div className="relative order-1 flex h-full items-end justify-center lg:order-2 lg:items-center">
+            <div className="relative h-full w-full perspective-1500">
               {FLAVORS.map((flavor, i) => (
                 <FlavorTin
                   key={flavor.id}
@@ -92,6 +84,18 @@ export function FlavorScroll() {
                 />
               ))}
             </div>
+          </div>
+
+          {/* Copy column — bottom on mobile, left on desktop */}
+          <div className="relative order-2 h-full min-h-0 overflow-hidden lg:order-1">
+            {FLAVORS.map((flavor, i) => (
+              <FlavorCopy
+                key={flavor.id}
+                flavor={flavor}
+                progress={progress}
+                index={i}
+              />
+            ))}
           </div>
         </div>
 
@@ -133,39 +137,38 @@ function FlavorCopy({
   return (
     <motion.div
       style={{ opacity, y, color: flavor.text }}
-      className="absolute max-w-xl"
+      className="absolute inset-0 flex flex-col overflow-y-auto pb-2 pr-1 lg:max-w-xl lg:overflow-visible lg:pr-0"
     >
       <p
-        className="text-[11px] font-semibold uppercase tracking-[0.32em] opacity-70"
+        className="text-[10px] font-semibold uppercase tracking-[0.32em] opacity-70 md:text-[11px]"
         style={{ color: flavor.text }}
       >
         Flavour 0{index + 1}
       </p>
       <h2
-        className="mt-4 font-display text-5xl font-light leading-[1.02] md:text-7xl"
+        className="mt-2 font-display text-3xl font-light leading-[1.02] sm:text-4xl md:mt-4 md:text-6xl lg:text-7xl"
         style={{ color: flavor.text }}
       >
-        {flavor.labelLines[0]}
-        <br />
+        {flavor.labelLines[0]}{" "}
         <span className="italic">{flavor.labelLines[1]}</span>
       </h2>
-      <p className="mt-6 max-w-md text-lg leading-relaxed opacity-85 md:text-xl">
+      <p className="mt-3 max-w-md text-sm leading-relaxed opacity-85 sm:text-base md:mt-6 md:text-lg lg:text-xl">
         {flavor.hero}
       </p>
-      <p className="mt-4 max-w-md text-base leading-relaxed opacity-70">
+      <p className="mt-2 hidden max-w-md text-sm leading-relaxed opacity-70 sm:block md:mt-4 md:text-base">
         {flavor.story}
       </p>
 
       {/* Ingredients */}
-      <div className="mt-8">
-        <p className="text-[10px] font-semibold uppercase tracking-[0.32em] opacity-60">
+      <div className="mt-4 md:mt-8">
+        <p className="hidden text-[10px] font-semibold uppercase tracking-[0.32em] opacity-60 sm:block">
           Inside the tin
         </p>
-        <ul className="mt-3 flex flex-wrap gap-2">
+        <ul className="mt-1 flex flex-wrap gap-1.5 sm:mt-3 sm:gap-2">
           {flavor.ingredients.map((ing) => (
             <li
               key={ing}
-              className="rounded-full border px-3.5 py-1.5 text-xs font-medium tracking-wide"
+              className="rounded-full border px-2.5 py-1 text-[10px] font-medium tracking-wide sm:px-3.5 sm:py-1.5 sm:text-xs"
               style={{
                 borderColor: `${flavor.text}33`,
                 color: flavor.text,
@@ -178,8 +181,8 @@ function FlavorCopy({
         </ul>
       </div>
 
-      {/* Nutrition + CTA */}
-      <div className="mt-8 flex flex-wrap items-end gap-x-8 gap-y-4">
+      {/* Nutrition — hidden on mobile to fit, visible from sm up */}
+      <div className="mt-4 hidden flex-wrap items-end gap-x-6 gap-y-2 sm:flex md:mt-8 md:gap-x-8 md:gap-y-4">
         <Nutrition label="Calories" value={flavor.nutrition.calories} color={flavor.text} />
         <Nutrition label="Protein" value={flavor.nutrition.protein} color={flavor.text} />
         <Nutrition label="Fat" value={flavor.nutrition.fat} color={flavor.text} />
@@ -187,7 +190,7 @@ function FlavorCopy({
 
       <a
         href="#cta"
-        className="group mt-10 inline-flex items-center gap-2.5 rounded-full px-6 py-3.5 text-sm font-semibold uppercase tracking-[0.18em] transition"
+        className="group mt-5 inline-flex w-fit items-center gap-2 rounded-full px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.18em] transition sm:gap-2.5 sm:px-6 sm:py-3.5 sm:text-sm md:mt-10"
         style={{
           background: flavor.text,
           color: flavor.bg,
@@ -254,8 +257,9 @@ function FlavorTin({
       >
         <ProductPhoto
           flavor={flavor}
-          sizes="(max-width: 1024px) 80vw, 520px"
-          className="h-[70vh] max-h-[600px] w-[clamp(280px,50vw,520px)]"
+          priority
+          sizes="(max-width: 640px) 70vw, (max-width: 1024px) 50vw, 520px"
+          className="h-[34vh] w-[clamp(220px,70vw,360px)] max-h-[360px] sm:h-[40vh] sm:max-h-[420px] lg:h-[70vh] lg:max-h-[600px] lg:w-[clamp(280px,50vw,520px)]"
         />
       </motion.div>
     </motion.div>

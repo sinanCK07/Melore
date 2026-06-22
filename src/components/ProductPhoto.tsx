@@ -15,6 +15,7 @@ type Props = {
   className?: string;
   sizes?: string;
   priority?: boolean;
+  loading?: "eager" | "lazy";
 };
 
 /**
@@ -26,6 +27,7 @@ export function ProductPhoto({
   className = "",
   sizes = "(max-width: 768px) 80vw, 600px",
   priority = false,
+  loading,
 }: Props) {
   return (
     <div className={`relative ${className}`}>
@@ -36,6 +38,7 @@ export function ProductPhoto({
         sizes={sizes}
         className="object-contain drop-shadow-[0_50px_50px_rgba(0,0,0,0.45)]"
         priority={priority}
+        {...(loading && !priority ? { loading } : {})}
       />
     </div>
   );

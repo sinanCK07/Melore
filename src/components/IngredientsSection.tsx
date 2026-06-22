@@ -21,7 +21,7 @@ const INGREDIENTS: Ingredient[] = [
     origin: "Normandy, France",
     note: "Slow-churned to a 84% fat content. The structural backbone of every Melore.",
     glow: "#FFD978",
-    photo: "/products/butter.png",
+    photo: "/products-webp/butter.webp",
     focal: "center 35%",
     icon: (
       <svg viewBox="0 0 64 64" className="h-9 w-9">
@@ -36,7 +36,7 @@ const INGREDIENTS: Ingredient[] = [
     origin: "Pampore Valley, India",
     note: "150,000 stigmas hand-picked for a single kilo. We use Mongra grade only.",
     glow: "#E25822",
-    photo: "/products/saffron.png",
+    photo: "/products-webp/saffron.webp",
     focal: "center 38%",
     icon: (
       <svg viewBox="0 0 64 64" className="h-9 w-9">
@@ -50,7 +50,7 @@ const INGREDIENTS: Ingredient[] = [
     origin: "Iran",
     note: "The rarest almond on earth. Less than 4% of global almond crop. Naturally sweet.",
     glow: "#E5C97E",
-    photo: "/products/saffron.png",
+    photo: "/products-webp/saffron.webp",
     focal: "70% 70%",
     icon: (
       <svg viewBox="0 0 64 64" className="h-9 w-9">
@@ -64,7 +64,7 @@ const INGREDIENTS: Ingredient[] = [
     origin: "Bronte, Italy",
     note: "Volcanic-soil grown on Mount Etna. Vivid emerald, naturally sweet, deeply aromatic.",
     glow: "#7CB342",
-    photo: "/products/saffron.png",
+    photo: "/products-webp/saffron.webp",
     focal: "85% 80%",
     icon: (
       <svg viewBox="0 0 64 64" className="h-9 w-9">
@@ -79,7 +79,7 @@ const INGREDIENTS: Ingredient[] = [
     origin: "Esmeraldas, Ecuador",
     note: "70% dark, melted and re-tempered in our kitchen. Pools, not specks.",
     glow: "#8D5B3B",
-    photo: "/products/cocoa.png",
+    photo: "/products-webp/cocoa.webp",
     focal: "center 40%",
     icon: (
       <svg viewBox="0 0 64 64" className="h-9 w-9">
@@ -94,7 +94,7 @@ const INGREDIENTS: Ingredient[] = [
     origin: "Kerala, India",
     note: "Slow-toasted over banana wood until it caramelises. Tropical, never tropical-sweet.",
     glow: "#F0D38A",
-    photo: "/products/coconut.png",
+    photo: "/products-webp/coconut.webp",
     focal: "center 40%",
     icon: (
       <svg viewBox="0 0 64 64" className="h-9 w-9">
